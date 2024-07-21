@@ -1,6 +1,9 @@
 package misc
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestCheckExtension(t *testing.T) {
 	subject := "test.txt"
@@ -11,5 +14,17 @@ func TestCheckExtension(t *testing.T) {
 		t.Errorf("Found: %t", found)
 		t.Errorf("Expected: %t", expected)
 		t.Errorf("TestCheckExtension Failed!")
+	}
+}
+
+func TestReadFile(t *testing.T) {
+	subject := "test.txt"
+	found := ReadFile(subject)
+	expected, _ := os.ReadFile("test.txt")
+
+	if found != string(expected) {
+		t.Errorf("Found: %s", found)
+		t.Errorf("Expected: %s", expected)
+		t.Errorf("TestReadFile Failed!")
 	}
 }
