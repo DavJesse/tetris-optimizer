@@ -2,7 +2,7 @@ package main
 
 import "os"
 
-func PrntLine(str string) {
+func PrintLine(str string) {
 	// Write str to terminal
-	os.Stdout.WriteString(str)
+	os.Stdout.WriteString(str+ "\n")
 }
