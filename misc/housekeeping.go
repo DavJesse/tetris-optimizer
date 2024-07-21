@@ -1,4 +1,4 @@
-package housekeeping
+package misc
 
 func CheckExtension(str string) bool {
 	var status bool

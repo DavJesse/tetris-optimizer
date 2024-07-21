@@ -1,4 +1,4 @@
-package housekeeping
+package misc
 
 import "os"
 
