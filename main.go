@@ -17,4 +17,13 @@ func main() {
 			return
 		}
 	}
+
+	// Store contents of arg in 'file'
+	file := arg[0]
+
+	// End program in the instance of non-text files
+	if !CheckExtension(file) {
+		PrintLine("Wrong file format!\nThe file parsed as an argument must be a '.txt' file.")
+		return
+	}
 }
