@@ -7,7 +7,7 @@ func main() {
 
 	if len(arg) != 1 {
 		if len(arg) == 0 {
-			pri
+			PrintLine("Please include the name of a text file as an argument")
 		}
 	}
 }
