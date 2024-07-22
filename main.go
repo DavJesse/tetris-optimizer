@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"tetris/misc"
@@ -30,4 +31,9 @@ func main() {
 		misc.PrintLine("Wrong file format!\nThe file parsed as an argument must be a '.txt' file.")
 		return
 	}
+
+	// content := misc.ReadFile(file)
+	// fmt.Printf("%q\n", content)
+	// tetroSlc := misc.TwoD(content)
+	// fmt.Printf("%q\n", tetroSlc)
 }
