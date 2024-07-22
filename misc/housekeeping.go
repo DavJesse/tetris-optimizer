@@ -47,3 +47,25 @@ func splitString(str, sep string) []string {
 	result = append(result, token)
 	return result
 }
+
+func TwoD(str string) [][]string {
+	var result [][]string
+	var token []string
+
+	raw := splitString(str, "\n")
+
+	for i := 0; i < len(raw); i++ {
+		// Find empty stings separating tetrominoes...
+		// Append contents of token to result
+		if raw[i] == "" {
+			result = append(result, token)
+			token = nil // Empty token
+
+			// Add non-empty strings to token
+		} else {
+			token = append(token, raw[i])
+		}
+	}
+
+	return result
+}
