@@ -32,8 +32,7 @@ func main() {
 		return
 	}
 
-	content := misc.ReadFile(file)
-	fmt.Printf("%q\n", content)
-	tetroSlc := misc.TwoD(content)
-	fmt.Printf("%q\n", tetroSlc)
+	content := misc.ReadFile(file) // Read the file parsed as argument
+
+	tetroSlc := misc.TwoD(content) // Extract tetrominoes in file and store them in 2D slice
 }
