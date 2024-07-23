@@ -1,7 +1,6 @@
 package misc
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"runtime"
@@ -53,11 +52,9 @@ func splitString(str, sep string) []string {
 func TwoD(str string) [][]string {
 	var result [][]string
 	var token []string
-	os := runtime.GOOS
+	sep := osChecker()
 
-	fmt.Println(os)
-
-	raw := splitString(str, "\n")
+	raw := splitString(str, sep)
 
 	for i := 0; i < len(raw); i++ {
 		// Find empty stings separating tetrominoes...
@@ -77,12 +74,13 @@ func TwoD(str string) [][]string {
 
 func osChecker() string {
 	var sep string
-	os := runtime.GOOS
+	os := runtime.GOOS // check user's operating system
 
+	// If user is running windows, nominate "\r\n" as seperator
 	if os == "windows" {
 		sep = "\r\n"
 	} else {
-		sep = "\n"
+		sep = "\n" // Use "\n" as default separator
 	}
 
 	return sep
