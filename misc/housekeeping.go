@@ -68,6 +68,7 @@ func TwoD(str string) [][]string {
 			token = append(token, raw[i])
 		}
 	}
+	result = append(result, token)
 
 	return result
 }
