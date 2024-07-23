@@ -17,6 +17,11 @@ func fourByFour(file [][]string) bool {
 				break
 			}
 		}
+
+		// In case of invalidity, break for efficiency
+		if !valid {
+			break
+		}
 	}
 	return valid
 }
