@@ -16,3 +16,7 @@ func TestFourByFour(t *testing.T) {
 		t.Errorf("TestFourByFour Failed!")
 	}
 }
+
+func TestFourChars(t *testing.T) {
+	subject
+}
