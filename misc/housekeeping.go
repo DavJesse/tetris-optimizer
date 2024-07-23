@@ -3,6 +3,7 @@ package misc
 import (
 	"log"
 	"os"
+	"runtime"
 )
 
 func CheckExtension(str string) bool {
@@ -51,8 +52,9 @@ func splitString(str, sep string) []string {
 func TwoD(str string) [][]string {
 	var result [][]string
 	var token []string
+	sep := osChecker()
 
-	raw := splitString(str, "\n")
+	raw := splitString(str, sep)
 
 	for i := 0; i < len(raw); i++ {
 		// Find empty stings separating tetrominoes...
@@ -66,6 +68,21 @@ func TwoD(str string) [][]string {
 			token = append(token, raw[i])
 		}
 	}
+	result = append(result, token)
 
 	return result
+}
+
+func osChecker() string {
+	var sep string
+	os := runtime.GOOS // check user's operating system
+
+	// If user is running windows, nominate "\r\n" as seperator
+	if os == "windows" {
+		sep = "\r\n"
+	} else {
+		sep = "\n" // Use "\n" as default separator
+	}
+
+	return sep
 }

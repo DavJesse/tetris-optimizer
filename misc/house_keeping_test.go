@@ -63,7 +63,10 @@ func TestSplitString(t *testing.T) {
 func TestTwoD(t *testing.T) {
 	subject, _ := os.ReadFile("test.txt")
 	found := TwoD(string(subject))
-	expected := [][]string{{"#   ", "#   ", "#   ", "#   "}, {"    ", "    ", "  ##", "  ##"}}
+	expected := [][]string{
+		{"#...", "#...", "#...", "#..."},
+		{"....", "....", "..##", "..##"},
+	}
 
 	for i := 0; i < len(expected); i++ {
 		for j := 0; j < 4; j++ {
