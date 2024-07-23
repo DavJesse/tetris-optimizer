@@ -3,6 +3,8 @@ package misc
 import (
 	"os"
 	"testing"
+
+	"tetris/strung"
 )
 
 func TestCheckExtension(t *testing.T) {
@@ -35,7 +37,7 @@ func TestReadFile(t *testing.T) {
 
 func TestSplitString(t *testing.T) {
 	subject := "abcabcabc"
-	found := splitString(subject, "abc")
+	found := strung.Split(subject, "abc")
 	expected := []string{"", "", "", ""}
 
 	// Check if lengths of found and expected are equal...
