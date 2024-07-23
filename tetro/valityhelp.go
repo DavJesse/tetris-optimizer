@@ -17,6 +17,11 @@ func fourByFour(file [][]string) bool {
 				break
 			}
 		}
+
+		// In case of invalidity, break for efficiency
+		if !valid {
+			break
+		}
 	}
 	return valid
 }
@@ -25,20 +30,40 @@ func fourChars(file [][]string) bool {
 	var count int
 	valid := true
 
-	for _, tet := range file {
-		for i := 0; i < 4; i++ {
-			if string(tet[i]) == "#" {
-				count++
-				if i == 3 {
-					if count != 4 {
-						valid = false
-						break
+	// i ranges though tetrominoes in file
+	// j ranges though lines of tetromino
+	// k ranges through character in each line
+	for i := 0; i < len(file); i++ {
+		for j := 0; j < 4; j++ {
+			for k := 0; k < 4; k++ {
+
+				// Count number of '#' in tetromino
+				if string(file[i][j][k]) == "#" {
+					count++
+				}
+
+				// Check for irregular '#' count at end of tetromino
+				if j == 3 && k == 3 {
+					if count == 4 {
+						count = 0 // Reset coint for next round of tetromino
 					} else {
-						count = 0
+						valid = false // Set valid to false at irregular count
+						break
 					}
 				}
+
+			}
+			// When invalid tetromino is discovered...
+			// Break out of loop for efficiency
+			if !valid {
+				break
 			}
 		}
+		// Break for efficiency
+		if !valid {
+			break
+		}
 	}
+
 	return valid
 }
