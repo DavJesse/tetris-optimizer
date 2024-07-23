@@ -29,9 +29,13 @@ func fourChars(file [][]string) bool {
 		for i := 0; i < 4; i++ {
 			if string(tet[i]) == "#" {
 				count++
-				if i == 3 && count != 4 {
-					valid = false
-					break
+				if i == 3 {
+					if count != 4 {
+						valid = false
+						break
+					} else {
+						count = 0
+					}
 				}
 			}
 		}
