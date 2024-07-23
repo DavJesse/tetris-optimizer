@@ -10,6 +10,7 @@ func TestFourByFour(t *testing.T) {
 	got := fourByFour(subject)
 	expected := false
 
+	// Compare got and expected
 	if got != expected {
 		t.Errorf("Got: %t", got)
 		t.Errorf("Expected: %t", expected)
@@ -18,5 +19,17 @@ func TestFourByFour(t *testing.T) {
 }
 
 func TestFourChars(t *testing.T) {
-	subject
+	subject := [][]string{
+		{"#...", "....", "#...", "#..."},
+		{"....", "....", "..##", "..##"},
+	}
+	got := fourChars(subject)
+	expected := false
+
+	// Compare got and expected
+	if got != expected {
+		t.Errorf("Got: %t", got)
+		t.Errorf("Expected: %t", expected)
+		t.Errorf("TestFourChars Failed!")
+	}
 }
