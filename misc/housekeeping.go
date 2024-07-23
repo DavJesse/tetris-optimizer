@@ -1,8 +1,10 @@
 package misc
 
 import (
+	"fmt"
 	"log"
 	"os"
+	"runtime"
 )
 
 func CheckExtension(str string) bool {
@@ -51,6 +53,9 @@ func splitString(str, sep string) []string {
 func TwoD(str string) [][]string {
 	var result [][]string
 	var token []string
+	os := runtime.GOOS
+
+	fmt.Println(os)
 
 	raw := splitString(str, "\n")
 
@@ -68,4 +73,17 @@ func TwoD(str string) [][]string {
 	}
 
 	return result
+}
+
+func osChecker() string {
+	var sep string
+	os := runtime.GOOS
+
+	if os == "windows" {
+		sep = "\r\n"
+	} else {
+		sep = "\n"
+	}
+
+	return sep
 }
