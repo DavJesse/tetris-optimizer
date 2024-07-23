@@ -20,3 +20,15 @@ func fourByFour(file [][]string) bool {
 	}
 	return valid
 }
+
+func fourChars(file [][]string) bool {
+
+	for _, tet := range file {
+		for i := 0; i < 4; i++ {
+			if len(tet[i]) != 4 {
+				return false
+			}
+		}
+	}
+	return true
+}
