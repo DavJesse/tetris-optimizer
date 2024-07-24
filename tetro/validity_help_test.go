@@ -33,3 +33,15 @@ func TestFourChars(t *testing.T) {
 		t.Errorf("TestFourChars Failed!")
 	}
 }
+
+func TestConnections(t *testing.T) {
+	subject := []string{"....", "....", "..##", "..##"}
+	got := connections(subject)
+	expected := 8
+
+	if got != expected {
+		t.Errorf("Got: %d", got)
+		t.Errorf("Expected: %d", expected)
+		t.Errorf("TestConnection Failed!")
+	}
+}
