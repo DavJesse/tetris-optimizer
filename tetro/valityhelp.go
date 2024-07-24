@@ -81,9 +81,7 @@ func connections(file []string) int {
 					if j != 0 && j != len(file[i])-1 {
 						if file[i][j] == h {
 							// Check for block directly above
-							if file[i-1][j] == h {
-								count++
-							}
+							count += checkAbove(i, j, count, h, file)
 							// 	// Check for block on left
 							if file[i][j-1] == h {
 								count++
@@ -108,4 +106,11 @@ func connections(file []string) int {
 	}
 
 	return conect
+}
+
+func checkAbove(i, j, count int, h byte, file []string) int {
+	if file[i-1][j] == h {
+		count++
+	}
+	return count
 }
