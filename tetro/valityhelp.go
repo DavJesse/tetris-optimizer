@@ -1,5 +1,7 @@
 package tetro
 
+import "tetris/strung"
+
 func fourByFour(file [][]string) bool {
 	valid := true
 
@@ -66,4 +68,44 @@ func fourChars(file [][]string) bool {
 	}
 
 	return valid
+}
+
+func connections(file []string) int {
+	var count int
+	h := byte('#')
+
+	for i := 0; i < len(file); i++ {
+		if strung.Contains(file[i], "#") {
+			for j := 0; j < len(file[i]); j++ {
+				if i != 0 && i != len(file)-1 {
+					if j != 0 && j != len(file[i])-1 {
+						if file[i][j] == h {
+							// Check for block directly above
+							if file[i-1][j] == h {
+								count++
+							}
+							// 	// Check for block on left
+							if file[i][j-1] == h {
+								count++
+							}
+							// Check for block on right
+							if file[i][j+1] == h {
+								count++
+							}
+							// Check for block directly below
+							if file[i+1][j] == h {
+								count++
+							}
+						}
+					}
+
+				}
+				if i != len(file)-1 && j != 0 && j != len(file[1])-1 {
+
+				}
+			}
+		}
+	}
+
+	return conect
 }
