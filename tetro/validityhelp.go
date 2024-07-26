@@ -152,3 +152,36 @@ func checkBelow(i, j, count int, h byte, file []string) int {
 	}
 	return count
 }
+
+func TrimTetro(tet []string) []string {
+	row := len(tet)
+	col := len(tet[0])
+	pil := 0
+	tag := byte('#')
+
+	for i := 0; i < row; i++ {
+		if !strung.Contains(tet[i], "#") {
+			if i < row-1 {
+				tet = append(tet[:i], tet[i+1:]...)
+				row--
+			} else {
+				tet = tet[:i]
+				row--
+			}
+			
+		}
+		for j := 0; j < col; j++ {
+			for k := 0; k < row; k++ {
+				if tet[i+k][j] == tag {
+					break
+				} else {
+					pil++
+					if pil = row
+
+				}
+			}
+
+		}
+	}
+
+}
