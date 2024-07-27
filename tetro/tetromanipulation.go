@@ -39,5 +39,10 @@ func removeRow(tet []string) []string {
 		}
 	}
 
-	for i := 0;
+	for i := 0; i < len(tet); i++ {
+		if !strung.Contains(tet[i], "#") {
+			tet = removeRow(tet)
+		}
+	}
+	return tet
 }
