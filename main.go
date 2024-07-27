@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"tetris/misc"
@@ -34,4 +35,5 @@ func main() {
 	content := misc.ReadFile(file) // Read the file parsed as argument
 
 	tetroSlc := misc.TwoD(content) // Extract tetrominoes in file and store them in 2D slice
+	fmt.Println(tetroSlc)
 }
