@@ -18,7 +18,7 @@ func fourByFour(tetro []string) bool {
 	return valid
 }
 
-func fourChars(tetro []string) bool {
+func fourHashes(tetro []string) bool {
 	var count int
 	valid := true
 	row := len(tetro)
