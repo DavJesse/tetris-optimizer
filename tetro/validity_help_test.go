@@ -35,7 +35,12 @@ func TestFourChars(t *testing.T) {
 }
 
 func TestConnections(t *testing.T) {
-	subject := []string{"....", "....", "..##", "..##"}
+	subject := []string{
+		"....",
+		"....",
+		"..##",
+		"..##",
+	}
 	got := connections(subject)
 	expected := 8
 
