@@ -7,11 +7,13 @@ func CheckValidy(file [][]string) ([][]string, string) {
 	for _, tet := range file {
 		if !fourByFour(tet) {
 			err = validityError()
+			tetro = [][]string{}
 			break
 		}
 
 		if !fourHashes(tet) {
 			err = validityError()
+			tetro = [][]string{}
 			break
 		}
 
