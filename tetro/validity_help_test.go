@@ -3,10 +3,7 @@ package tetro
 import "testing"
 
 func TestFourByFour(t *testing.T) {
-	subject := [][]string{
-		{"#...", "#..", "#...", "#..."},
-		{"....", "....", "..##", "..##"},
-	}
+	subject := []string{"#...", "#..", "#...", "#..."}
 	got := fourByFour(subject)
 	expected := false
 
