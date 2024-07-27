@@ -2,7 +2,7 @@ package tetro
 
 func CheckValidy(file [][]string) ([][]string, string) {
 	var err string
-	var tetro []string
+	var tetro [][]string
 
 	for _, tet := range file {
 		if !fourByFour(tet) {
@@ -10,12 +10,12 @@ func CheckValidy(file [][]string) ([][]string, string) {
 			break
 		}
 
-		tetro = TetroTrim(tet)
-
 		if !fourHashes(tet) {
 			err = validityError()
 			break
 		}
+
+		tetro = append(tetro, TetroTrim(tet))
 
 	}
 	return tetro, err
