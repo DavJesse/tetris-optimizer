@@ -1,7 +1,5 @@
 package tetro
 
-import "tetris/strung"
-
 func fourByFour(file [][]string) bool {
 	valid := true
 
@@ -70,118 +68,37 @@ func fourChars(file [][]string) bool {
 	return valid
 }
 
-func connections(file []string) int {
-	var count int
-	h := byte('#')
+// func connections(file []string) int {
+// 	var count int
+// 	h := byte('#')
 
-	for i := 0; i < len(file); i++ {
-		if strung.Contains(file[i], "#") {
-			for j := 0; j < len(file[i]); j++ {
-				if i != 0 && i != len(file)-1 {
-					if j != 0 && j != len(file[i])-1 {
-						if file[i][j] == h {
+// 	return count
+// }
 
-							count += checkAbove(i, j, count, h, file) // Check for block directly above
-							count += checkLeft(i, j, count, h, file)  // Check for block on left
-							count += checkRight(i, j, count, h, file) // Check for block on right
-							count += checkBelow(i, j, count, h, file) // Check for block directly below
+// func checkAbove(i, j, count int, h byte, file []string) int {
+// 	if file[i-1][j] == h {
+// 		count++
+// 	}
+// 	return count
+// }
 
-						}
-					}
+// func checkLeft(i, j, count int, h byte, file []string) int {
+// 	if file[i][j-1] == h {
+// 		count++
+// 	}
+// 	return count
+// }
 
-					if j != 0 && file[i][j] == h {
-						count += checkAbove(i, j, count, h, file) // Check for block directly above
-						count += checkLeft(i, j, count, h, file)  // Check for block on left
-						count += checkBelow(i, j, count, h, file) // Check for block directly below
-					}
+// func checkRight(i, j, count int, h byte, file []string) int {
+// 	if file[i][j+1] == h {
+// 		count++
+// 	}
+// 	return count
+// }
 
-					if j != len(file[i])-1 && file[i][j] == h {
-						count += checkAbove(i, j, count, h, file) // Check for block directly above
-						count += checkRight(i, j, count, h, file) // Check for block on right
-						count += checkBelow(i, j, count, h, file) // Check for block directly below
-					}
-
-				}
-				if i != len(file)-1 && j != 0 && j != len(file[i])-1 {
-					if file[i][j] == h {
-						count += checkAbove(i, j, count, h, file) // Check for block directly above
-						count += checkLeft(i, j, count, h, file)  // Check for block on left
-						count += checkRight(i, j, count, h, file) // Check for block on right
-
-					}
-				}
-				if i != 0 && j != 0 && j != len(file[1])-1 {
-					if file[i][j] == h {
-						count += checkLeft(i, j, count, h, file)  // Check for block on left
-						count += checkRight(i, j, count, h, file) // Check for block on right
-						count += checkBelow(i, j, count, h, file) // Check for block directly below
-					}
-				}
-
-			}
-		}
-	}
-
-	return count
-}
-
-func checkAbove(i, j, count int, h byte, file []string) int {
-	if file[i-1][j] == h {
-		count++
-	}
-	return count
-}
-
-func checkLeft(i, j, count int, h byte, file []string) int {
-	if file[i][j-1] == h {
-		count++
-	}
-	return count
-}
-
-func checkRight(i, j, count int, h byte, file []string) int {
-	if file[i][j+1] == h {
-		count++
-	}
-	return count
-}
-
-func checkBelow(i, j, count int, h byte, file []string) int {
-	if file[i+1][j] == h {
-		count++
-	}
-	return count
-}
-
-func TrimTetro(tet []string) []string {
-	row := len(tet)
-	col := len(tet[0])
-	pil := 0
-	tag := byte('#')
-
-	for i := 0; i < row; i++ {
-		if !strung.Contains(tet[i], "#") {
-			if i < row-1 {
-				tet = append(tet[:i], tet[i+1:]...)
-				row--
-			} else {
-				tet = tet[:i]
-				row--
-			}
-			
-		}
-		for j := 0; j < col; j++ {
-			for k := 0; k < row; k++ {
-				if tet[i+k][j] == tag {
-					break
-				} else {
-					pil++
-					if pil = row
-
-				}
-			}
-
-		}
-	}
-
-}
+// func checkBelow(i, j, count int, h byte, file []string) int {
+// 	if file[i+1][j] == h {
+// 		count++
+// 	}
+// 	return count
+// }
