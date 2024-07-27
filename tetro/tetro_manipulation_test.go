@@ -3,7 +3,7 @@ package tetro
 import "testing"
 
 // func Test(t *testing.T) {
-// 	test := ""
+// 	test := "Test"
 // 	subject :=
 // 	got :=
 // 	expected :=
@@ -14,6 +14,28 @@ import "testing"
 // 		t.Errorf("%s Failed!", test)
 // 	}
 // }
+
+func TestTetroTrim(t *testing.T) {
+	test := "TestTetroTrim"
+	subject := []string{"....", "....", "..##", "..##"}
+	got := TetroTrim(subject)
+	expected := []string{"##", "##"}
+
+	if len(got) != len(expected) {
+		t.Errorf("Got: %v", got)
+		t.Errorf("Expected: %v", expected)
+		t.Errorf("%s Failed!", test)
+		t.Fail()
+	} else {
+		for i := 0; i < len(expected); i++ {
+			if got[i] != expected[i] {
+				t.Errorf("Got: %v", got)
+				t.Errorf("Expected: %v", expected)
+				t.Errorf("%s Failed!", test)
+			}
+		}
+	}
+}
 
 func TestEmptColumn(t *testing.T) {
 	test := "TestEmptColumn"
