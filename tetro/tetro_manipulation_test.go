@@ -34,9 +34,7 @@ func TestEmptColumn(t *testing.T) {
 				t.Errorf("%s Failed!", test)
 			}
 		}
-
 	}
-
 }
 
 func TestRemoveRow(t *testing.T) {
@@ -58,6 +56,5 @@ func TestRemoveRow(t *testing.T) {
 				t.Errorf("%s Failed!", test)
 			}
 		}
-
 	}
 }
