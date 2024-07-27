@@ -31,7 +31,7 @@ func TestCheckValidity(t *testing.T) {
 		t.Errorf("%s Failed!", test)
 		t.Fail()
 	} else {
-		// Compare elements, Failing in case of descrepancy
+		// Compare lengths, Failing in case of descrepancy
 		if len(gotTetro) != len(expectedTetro) {
 			t.Errorf("Got: %v", gotTetro)
 			t.Errorf("Expected: %v", expectedTetro)
