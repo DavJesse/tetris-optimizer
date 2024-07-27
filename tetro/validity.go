@@ -5,9 +5,11 @@ package tetro
 // 	var hashCount int
 // 	var tetro []string
 
-// 	if
-
 // 	for _, tet := range file {
+// 		if !fourByFour(tet) {
+// 			err = validityError()
+// 			break
+// 		}
 // 		tetro = TetroTrim(tet)
 
 // 	}
