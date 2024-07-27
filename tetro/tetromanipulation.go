@@ -1,6 +1,8 @@
 package tetro
 
-import "tetris/strung"
+import (
+	"tetris/strung"
+)
 
 // func TetroTrim(tet []string) []string {
 
@@ -25,24 +27,11 @@ func occupyCol(tet []string) []int {
 }
 
 func removeRow(tet []string) []string {
-	for i, row := range tet {
-		if !strung.Contains(row, "#") {
-			if i == 0 {
-				tet = tet[1:]
-				i++
-			} else if i == len(tet)-1 {
-				tet = tet[:i]
-				break
-			} else {
-				tet = append(tet[:i], tet[i+1:]...)
-			}
+	var result []string
+	for _, row := range tet {
+		if strung.Contains(row, "#") {
+			result = append(result, row)
 		}
 	}
-
-	for i := 0; i < len(tet); i++ {
-		if !strung.Contains(tet[i], "#") {
-			tet = removeRow(tet)
-		}
-	}
-	return tet
+	return result
 }

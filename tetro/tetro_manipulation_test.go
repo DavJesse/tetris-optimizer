@@ -2,7 +2,7 @@ package tetro
 
 import "testing"
 
-// func TestTetroTrim(t *testing.T) {
+// func Test(t *testing.T) {
 // 	test := ""
 // 	subject :=
 // 	got :=
@@ -37,4 +37,27 @@ func TestEmptColumn(t *testing.T) {
 
 	}
 
+}
+
+func TestRemoveRow(t *testing.T) {
+	test := "TestRemoveRow"
+	subject := []string{"....", "....", "..##", "..##"}
+	got := removeRow(subject)
+	expected := []string{"..##", "..##"}
+
+	if len(got) != len(expected) {
+		t.Errorf("Got: %v", got)
+		t.Errorf("Expected: %v", expected)
+		t.Errorf("%s Failed!", test)
+		t.Fail()
+	} else {
+		for i := 0; i < len(expected); i++ {
+			if got[i] != expected[i] {
+				t.Errorf("Got: %v", got)
+				t.Errorf("Expected: %v", expected)
+				t.Errorf("%s Failed!", test)
+			}
+		}
+
+	}
 }
