@@ -3,8 +3,6 @@ package misc
 import (
 	"os"
 	"testing"
-
-	"tetris/strung"
 )
 
 func TestCheckExtension(t *testing.T) {
