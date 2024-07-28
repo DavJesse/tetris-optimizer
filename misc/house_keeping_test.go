@@ -21,7 +21,7 @@ func TestCheckExtension(t *testing.T) {
 
 func TestReadFile(t *testing.T) {
 	subject := "test.txt"
-	found := ReadFile(subject)             // Save function output to found
+	found, _ := ReadFile(subject)          // Save function output to found
 	expected, _ := os.ReadFile("test.txt") // Read file directly from os.ReadFile
 
 	// Compare found & Expected
