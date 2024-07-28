@@ -75,7 +75,11 @@ func validConnections(tet []string) bool {
 }
 
 // Outputs validity error message
-func validityError() string {
-	err := " contains invalid tetromino"
-	return err
+func validityError(index int) string {
+	errors := []string{
+		" contains more than 26 tetrominos",
+		" contains invalid tetromino",
+	}
+
+	return errors[index]
 }
