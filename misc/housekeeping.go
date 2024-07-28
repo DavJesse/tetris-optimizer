@@ -19,15 +19,18 @@ func CheckExtension(str string) bool {
 	return status
 }
 
-func ReadFile(file string) string {
+func ReadFile(file string) (string, string) {
+	var errors string
+
 	// Read file parse
 	content, err := os.ReadFile(file)
 	// Print error & exit program should reading fail
+	// Populate error message should there be an error
 	if err != nil {
-		log.Fatal(err)
+		errors = "Could not find "
 	}
 
-	return string(content)
+	return string(content), errors
 }
 
 func TwoD(str string) [][]string {
