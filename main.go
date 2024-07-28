@@ -44,5 +44,6 @@ func main() {
 		misc.PrintLine(err)
 		return
 	}
-	fmt.Println(tetroSlc)
+
+	size := grid.Solve(tetroSlc)
 }
