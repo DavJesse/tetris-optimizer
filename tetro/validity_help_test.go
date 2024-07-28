@@ -15,7 +15,7 @@ func TestFourByFour(t *testing.T) {
 	}
 }
 
-func TestFourChars(t *testing.T) {
+func TestFourHashes(t *testing.T) {
 	subject := []string{"#...", "....", "#...", "#..."}
 	got := fourHashes(subject)
 	expected := false
@@ -28,19 +28,56 @@ func TestFourChars(t *testing.T) {
 	}
 }
 
-// func TestConnections(t *testing.T) {
-// 	subject := []string{
-// 		"....",
-// 		"....",
-// 		"..##",
-// 		"..##",
-// 	}
-// 	got := connections(subject)
-// 	expected := 8
+func TestValidConnections(t *testing.T) {
+	subject := []string{
+		"....",
+		"....",
+		"..##",
+		"..##",
+	}
+	got := validConnections(subject)
+	expected := true
+
+	if got != expected {
+		t.Errorf("Got: %t", got)
+		t.Errorf("Expected: %t", expected)
+		t.Errorf("TestConnection Failed!")
+	}
+}
+
+func TestReplaceHash(t *testing.T) {
+	test := "TestReplaceHash"
+	subject := []string{"#...", "#...", "#...", "#..."}
+	got := replaceHash(25, subject) // Retrieve output for comparison
+	expected := []string{"Z...", "Z...", "Z...", "Z..."}
+
+	// Compare lengths, Failing in case of descrepancy
+	if len(got) != len(expected) {
+		t.Errorf("Got: %v", got)
+		t.Errorf("Expected: %v", expected)
+		t.Errorf("%s Failed!", test)
+		t.Fail()
+	} else {
+		// Compare elements, Failing in case of descrepancy
+		for i := 0; i < len(expected); i++ {
+			if got[i] != expected[i] {
+				t.Errorf("Got: %v", got)
+				t.Errorf("Expected: %v", expected)
+				t.Errorf("%s Failed!", test)
+			}
+		}
+	}
+}
+
+// func Test(t *testing.T) {
+// 	test := "Test"
+// 	subject :=
+// 	got :=  // Retrieve output for comparison
+// 	expected :=
 
 // 	if got != expected {
-// 		t.Errorf("Got: %d", got)
-// 		t.Errorf("Expected: %d", expected)
-// 		t.Errorf("TestConnection Failed!")
+// 		t.Errorf("Got: %v", got)
+// 		t.Errorf("Expected: %v", expected)
+// 		t.Errorf("%s Failed!", test)
 // 	}
 // }
