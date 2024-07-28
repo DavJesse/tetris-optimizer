@@ -15,7 +15,7 @@ func TestFourByFour(t *testing.T) {
 	}
 }
 
-func TestFourChars(t *testing.T) {
+func TestFourHashes(t *testing.T) {
 	subject := []string{"#...", "....", "#...", "#..."}
 	got := fourHashes(subject)
 	expected := false

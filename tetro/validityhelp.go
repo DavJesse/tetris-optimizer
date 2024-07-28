@@ -20,7 +20,6 @@ func fourByFour(tetro []string) bool {
 
 func fourHashes(tetro []string) bool {
 	var count int
-	valid := true
 	row := len(tetro)
 	col := len(tetro[0])
 
@@ -35,11 +34,7 @@ func fourHashes(tetro []string) bool {
 		}
 	}
 
-	if count != 4 {
-		valid = false
-	}
-
-	return valid
+	return count == 4
 }
 
 func validConnections(tet []string) bool {

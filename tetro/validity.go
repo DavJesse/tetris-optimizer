@@ -10,7 +10,7 @@ func CheckValidy(file [][]string) ([][]string, string) {
 		err = validityError(0)
 	} else {
 		// Range through file testing individual tetrominos
-		for _, tet := range file {
+		for i, tet := range file {
 			// Check dimensions of tetromino
 			if !fourByFour(tet) {
 				err = validityError(1)
@@ -18,6 +18,7 @@ func CheckValidy(file [][]string) ([][]string, string) {
 				break
 			}
 
+			// Trim tetromino for efficiency
 			trimmed = TetroTrim(tet)
 
 			// Check if each tetromino has four '#'
@@ -33,8 +34,9 @@ func CheckValidy(file [][]string) ([][]string, string) {
 				tetro = [][]string{}
 			}
 
-			// Trim and append valid tetominos to tetro
-			tetro = append(tetro, TetroTrim(tet))
+			trimmed = replaceHash(i, trimmed) // Replace '#' with unique alphabetic letter
+
+			tetro = append(tetro, trimmed) // Trim and append valid tetominos to tetro
 
 		}
 	}
