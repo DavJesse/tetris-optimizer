@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"tetris/misc"
+	"tetris/tetro"
 )
 
 func main() {
@@ -35,5 +36,13 @@ func main() {
 	content := misc.ReadFile(file) // Read the file parsed as argument
 
 	tetroSlc := misc.TwoD(content) // Extract tetrominoes in file and store them in 2D slice
+
+	tetroSlc, err := tetro.CheckValidy(tetroSlc) // Check tetrominos for validity
+
+	// In case of error, print error message, end program
+	if err != "" {
+		misc.PrintLine(err)
+		return
+	}
 	fmt.Println(tetroSlc)
 }
