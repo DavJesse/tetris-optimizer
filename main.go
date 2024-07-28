@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
+	"tetris/grid"
 	"tetris/misc"
 	"tetris/tetro"
 )
@@ -33,16 +33,24 @@ func main() {
 		return
 	}
 
-	content := misc.ReadFile(file) // Read the file parsed as argument
+	content, errFile := misc.ReadFile(file) // Read the file parsed as argument
+
+	if errFile != "" {
+		misc.PrintLine(errFile + file)
+		return
+	}
 
 	tetroSlc := misc.TwoD(content) // Extract tetrominoes in file and store them in 2D slice
 
-	tetroSlc, err := tetro.CheckValidy(tetroSlc) // Check tetrominos for validity
+	tetroSlc, errValidity := tetro.CheckValidy(tetroSlc) // Check tetrominos for validity
 
 	// In case of error, print error message, end program
-	if err != "" {
-		misc.PrintLine(err)
+	if errValidity != "" {
+		misc.PrintLine(file + errValidity)
 		return
 	}
-	fmt.Println(tetroSlc)
+
+	size := grid.Solve(tetroSlc)
+
+	grid.PrintGrid(size, tetroSlc)
 }
