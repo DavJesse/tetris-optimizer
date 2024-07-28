@@ -5,11 +5,14 @@ import "testing"
 func TestCheckValidity(t *testing.T) {
 	test := "TestCheckValidity"
 	subject := [][]string{
-		{"#...", "#..", "#...", "#..."},
-		{"#...", "....", "#...", "#..."},
+		{"#...", "#...", "#...", "#..."},
+		{"....", "....", "##..", "##.."},
 	}
 	gotTetro, gotErr := CheckValidy(subject) // Retrieve output for comparison
-	expectedTetro, exErr := [][]string{}, " contains invalid tetromino"
+	expectedTetro, exErr := [][]string{
+		{"A", "A", "A", "A"},
+		{"BB", "BB"},
+	}, ""
 
 	// Compare error lengths, Failing in case of descrepancy
 	if len(gotErr) != len(exErr) {
@@ -23,6 +26,17 @@ func TestCheckValidity(t *testing.T) {
 			t.Errorf("Got: %v", gotTetro)
 			t.Errorf("Expected: %v", expectedTetro)
 			t.Errorf("%s Failed!", test)
+		} else {
+			// Compare lines of expected and got tetrominos
+			for i := 0; i < len(expectedTetro); i++ {
+				for j := 0; j < len(expectedTetro[i]); j++ {
+					if gotTetro[i][j] != expectedTetro[i][j] {
+						t.Errorf("Got: %v", gotTetro)
+						t.Errorf("Expected: %v", expectedTetro)
+						t.Errorf("%s Failed!", test)
+					}
+				}
+			}
 		}
 	}
 }
