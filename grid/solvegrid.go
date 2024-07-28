@@ -22,3 +22,13 @@ func place(grid [][]byte, tetromino []string, row, col int) {
 		}
 	}
 }
+
+func remove(grid [][]byte, tetromino []string, row, col int) {
+	for i := range tetromino {
+		for j := range tetromino[i] {
+			if tetromino[i][j] != '.' {
+				grid[row+i][col+j] = 0
+			}
+		}
+	}
+}
