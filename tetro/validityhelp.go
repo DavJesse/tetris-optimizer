@@ -42,40 +42,37 @@ func fourHashes(tetro []string) bool {
 	return valid
 }
 
-// func connections(file []string) int {
-// 	var count int
-// 	h := byte('#')
+func validConnections(tet []string) bool {
+	var count int
+	tag := byte('#')
+	row, col := len(tet), len(tet[0])
 
-// 	return count
-// }
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			if tet[i][j] == tag {
+				// Check above
+				if i > 0 && tet[i-1][j] == tag {
+					count++
+				}
+				// Check below
+				if i < row-1 && tet[i+1][j] == tag {
+					count++
+				}
+				// Check left
+				if j > 0 && tet[i][j-1] == tag {
+					count++
+				}
+				// Check right
+				if j < col-1 && tet[i][j+1] == tag {
+					count++
+				}
 
-// func checkAbove(i, j, count int, h byte, file []string) int {
-// 	if file[i-1][j] == h {
-// 		count++
-// 	}
-// 	return count
-// }
-
-// func checkLeft(i, j, count int, h byte, file []string) int {
-// 	if file[i][j-1] == h {
-// 		count++
-// 	}
-// 	return count
-// }
-
-// func checkRight(i, j, count int, h byte, file []string) int {
-// 	if file[i][j+1] == h {
-// 		count++
-// 	}
-// 	return count
-// }
-
-// func checkBelow(i, j, count int, h byte, file []string) int {
-// 	if file[i+1][j] == h {
-// 		count++
-// 	}
-// 	return count
-// }
+			}
+		}
+	}
+	// Return true should 'count' be 6 or 8
+	return count == 6 || count == 8
+}
 
 // Outputs validity error message
 func validityError() string {

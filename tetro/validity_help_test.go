@@ -28,19 +28,32 @@ func TestFourChars(t *testing.T) {
 	}
 }
 
-// func TestConnections(t *testing.T) {
-// 	subject := []string{
-// 		"....",
-// 		"....",
-// 		"..##",
-// 		"..##",
-// 	}
-// 	got := connections(subject)
-// 	expected := 8
+func TestValidConnections(t *testing.T) {
+	subject := []string{
+		"....",
+		"....",
+		"..##",
+		"..##",
+	}
+	got := validConnections(subject)
+	expected := true
+
+	if got != expected {
+		t.Errorf("Got: %t", got)
+		t.Errorf("Expected: %t", expected)
+		t.Errorf("TestConnection Failed!")
+	}
+}
+
+// func Test(t *testing.T) {
+// 	test := "Test"
+// 	subject :=
+// 	got :=  // Retrieve output for comparison
+// 	expected :=
 
 // 	if got != expected {
-// 		t.Errorf("Got: %d", got)
-// 		t.Errorf("Expected: %d", expected)
-// 		t.Errorf("TestConnection Failed!")
+// 		t.Errorf("Got: %v", got)
+// 		t.Errorf("Expected: %v", expected)
+// 		t.Errorf("%s Failed!", test)
 // 	}
 // }
