@@ -74,7 +74,28 @@ func validConnections(tet []string) bool {
 	return count == 6 || count == 8
 }
 
-// Outputs validity error message
+func replaceHash(index int, tet []string) []string {
+	var result []string
+	var lnSlc []rune
+	rep := 'A' + int32(index) // Establish alphabetic charater to use
+
+	for _, line := range tet {
+		lnSlc = []rune(line)
+		for i := 0; i < len(lnSlc); i++ {
+			// Replace '#' with alphabetic character
+			if lnSlc[i] == '#' {
+				lnSlc[i] = rep
+			}
+			// Append adjusted line to result
+			if i == len(lnSlc)-1 {
+				result = append(result, string(lnSlc))
+			}
+		}
+	}
+	return result
+}
+
+// Outputs validity error messages
 func validityError(index int) string {
 	errors := []string{
 		" contains more than 26 tetrominos",
