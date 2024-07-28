@@ -45,6 +45,30 @@ func TestValidConnections(t *testing.T) {
 	}
 }
 
+func TestReplaceHash(t *testing.T) {
+	test := "TestReplaceHash"
+	subject := []string{"#...", "#...", "#...", "#..."}
+	got := replaceHash(25, subject) // Retrieve output for comparison
+	expected := []string{"Z...", "Z...", "Z...", "Z..."}
+
+	// Compare lengths, Failing in case of descrepancy
+	if len(got) != len(expected) {
+		t.Errorf("Got: %v", got)
+		t.Errorf("Expected: %v", expected)
+		t.Errorf("%s Failed!", test)
+		t.Fail()
+	} else {
+		// Compare elements, Failing in case of descrepancy
+		for i := 0; i < len(expected); i++ {
+			if got[i] != expected[i] {
+				t.Errorf("Got: %v", got)
+				t.Errorf("Expected: %v", expected)
+				t.Errorf("%s Failed!", test)
+			}
+		}
+	}
+}
+
 // func Test(t *testing.T) {
 // 	test := "Test"
 // 	subject :=
