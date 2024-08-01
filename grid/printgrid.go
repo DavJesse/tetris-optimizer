@@ -1,8 +1,6 @@
 package grid
 
 import (
-	"fmt"
-
 	"tetris/misc"
 )
 
@@ -19,7 +17,7 @@ func PrintGrid(size int, tetroSlc [][]string) {
 			if grid[i][j] == 0 {
 				misc.Print(".")
 			} else {
-				fmt.Printf("%c", grid[i][j])
+				misc.Print(string(grid[i][j]))
 			}
 		}
 		misc.PrintLine("")
