@@ -1,18 +1,21 @@
 package grid
 
-func placeTetromino(grid [][]byte, tetrominoes [][]string, index, size int) bool {
-	if index == len(tetrominoes) {
+func placeTetromino(grid [][]byte, tetroSlc [][]string, index, size int) bool {
+	// Terminate solve function when all tetrominoes are placed on grid
+	if index == len(tetroSlc) {
 		return true
 	}
 
+	// Loop through every cell of the grid...
+	// Checking if they are a viable starting point for placing a tetromino
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			if canPlace(grid, tetrominoes[index], i, j, size) {
-				place(grid, tetrominoes[index], i, j)
-				if placeTetromino(grid, tetrominoes, index+1, size) {
+			if canPlace(grid, tetroSlc[index], i, j, size) { // Check if specific tetromino can be placed
+				place(grid, tetroSlc[index], i, j)
+				if placeTetromino(grid, tetroSlc, index+1, size) {
 					return true
 				}
-				remove(grid, tetrominoes[index], i, j)
+				remove(grid, tetroSlc[index], i, j)
 			}
 		}
 	}
