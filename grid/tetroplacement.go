@@ -11,11 +11,11 @@ func placeTetromino(grid [][]byte, tetroSlc [][]string, index, size int) bool {
 	for row := 0; row < size; row++ {
 		for col := 0; col < size; col++ {
 			if canPlace(grid, tetroSlc[index], row, col, size) { // Check if specific tetromino can be placed
-				place(grid, tetroSlc[index], i, j)
+				place(grid, tetroSlc[index], row, col)
 				if placeTetromino(grid, tetroSlc, index+1, size) {
 					return true
 				}
-				remove(grid, tetroSlc[index], i, j)
+				remove(grid, tetroSlc[index], row, col)
 			}
 		}
 	}
