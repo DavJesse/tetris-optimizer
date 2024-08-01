@@ -1,7 +1,5 @@
 package grid
 
-import "fmt"
-
 func placeTetromino(grid [][]byte, tetroSlc [][]string, index, size int) bool {
 	// Terminate solve function when all tetrominoes are placed on grid
 	if index == len(tetroSlc) {
