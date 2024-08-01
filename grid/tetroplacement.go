@@ -8,9 +8,9 @@ func placeTetromino(grid [][]byte, tetroSlc [][]string, index, size int) bool {
 
 	// Loop through every cell of the grid...
 	// Checking if they are a viable starting point for placing a tetromino
-	for i := 0; i < size; i++ {
-		for j := 0; j < size; j++ {
-			if canPlace(grid, tetroSlc[index], i, j, size) { // Check if specific tetromino can be placed
+	for row := 0; row < size; row++ {
+		for col := 0; col < size; col++ {
+			if canPlace(grid, tetroSlc[index], row, col, size) { // Check if specific tetromino can be placed
 				place(grid, tetroSlc[index], i, j)
 				if placeTetromino(grid, tetroSlc, index+1, size) {
 					return true
