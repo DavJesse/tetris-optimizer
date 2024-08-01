@@ -1,7 +1,6 @@
 package grid
 
 func Solve(tetroSlc [][]string) int {
-
 	// initalize the smallest possible grid,
 	// placing and backtracking tetrominoes,
 	// and incrimentally increasing grid size
