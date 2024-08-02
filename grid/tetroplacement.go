@@ -15,7 +15,7 @@ func placeTetromino(grid [][]byte, tetroSlc [][]string, index, size int) bool {
 				if placeTetromino(grid, tetroSlc, index+1, size) {
 					return true
 				}
-				remove(grid, tetroSlc[index], row, col)
+				remove(grid, tetroSlc[index], row, col) // Backtrack should program fail to place a tetromino
 			}
 		}
 	}
@@ -50,9 +50,11 @@ func place(grid [][]byte, tetromino []string, row, col int) {
 	}
 }
 
+// Remove tetromino from grid
 func remove(grid [][]byte, tetromino []string, row, col int) {
 	for i := range tetromino {
 		for j := range tetromino[i] {
+			// Replace Alphabetic blocks with original 0s
 			if tetromino[i][j] != '.' {
 				grid[row+i][col+j] = 0
 			}
