@@ -1,6 +1,9 @@
 package grid
 
-import "testing"
+import (
+	"bytes"
+	"testing"
+)
 
 func TestPlaceTetromino(t *testing.T) {
 	test := "TestPlaceTetromino"
@@ -17,7 +20,7 @@ func TestPlaceTetromino(t *testing.T) {
 		},
 	}
 	index, size := 0, 4
-	got := placeTetromino(grid, tetroSlc, index, size) // Retrieve output for comparison
+	got := placeTetromino(grid, tetroSlc, index, size) // Retrieve outputs for comparison
 	expected := true
 
 	if got != expected {
@@ -40,7 +43,7 @@ func TestCanPlace(t *testing.T) {
 		"A",
 	}
 	row, col, size := 0, 0, 4
-	got := canPlace(grid, tetromino, row, col, size) // Retrieve output for comparison
+	got := canPlace(grid, tetromino, row, col, size) // Retrieve outputs for comparison
 	expected := true
 
 	if got != expected {
@@ -49,16 +52,3 @@ func TestCanPlace(t *testing.T) {
 		t.Errorf("%s Failed!", test)
 	}
 }
-
-// func Test(t *testing.T) {
-// 	test := "Test"
-// 	subject :=
-// 	got :=  // Retrieve output for comparison
-// 	expected :=
-
-// 	if got != expected {
-// 		t.Errorf("Got: %v", got)
-// 		t.Errorf("Expected: %v", expected)
-// 		t.Errorf("%s Failed!", test)
-// 	}
-// }
