@@ -1,9 +1,6 @@
 package grid
 
-import (
-	"bytes"
-	"testing"
-)
+import "testing"
 
 func TestPlaceTetromino(t *testing.T) {
 	test := "TestPlaceTetromino"
