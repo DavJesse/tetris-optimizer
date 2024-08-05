@@ -1,6 +1,7 @@
 package misc
 
 import (
+	"fmt"
 	"os"
 	"runtime"
 
@@ -38,6 +39,8 @@ func TwoD(str string) [][]string {
 	sep := osChecker()
 
 	raw := strung.Split(str, sep)
+
+	fmt.Printf("%q\n", raw)
 
 	for i := 0; i < len(raw); i++ {
 		// Find empty stings separating tetrominoes...
