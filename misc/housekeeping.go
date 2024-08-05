@@ -43,15 +43,21 @@ func TwoD(str string) [][]string {
 		// Find empty stings separating tetrominoes...
 		// Append contents of token to result
 		if raw[i] == "" {
-			result = append(result, token)
-			token = nil // Empty token
+			if len(token) > 0 { // Only append populated tokens
+				result = append(result, token)
+				token = nil // Empty token
+			}
 
 			// Add non-empty strings to token
 		} else {
 			token = append(token, raw[i])
 		}
 	}
-	result = append(result, token)
+	// Append left over slices at end of loop
+	// Only append populated slices
+	if len(token) > 0 {
+		result = append(result, token)
+	}
 
 	return result
 }
