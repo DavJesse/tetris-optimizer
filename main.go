@@ -29,14 +29,14 @@ func main() {
 
 	// End program in the instance of non-text files
 	if !misc.CheckExtension(file) {
-		misc.PrintLine("Wrong file format!\nThe file parsed as an argument must be a '.txt' file.")
+		misc.PrintLine(tetro.Errors())
 		return
 	}
 
 	content, errFile := misc.ReadFile(file) // Read the file parsed as argument
 
 	if errFile != "" {
-		misc.PrintLine(errFile + file)
+		misc.PrintLine(errFile)
 		return
 	}
 
@@ -46,7 +46,7 @@ func main() {
 
 	// In case of error, print error message, end program
 	if errValidity != "" {
-		misc.PrintLine(file + errValidity)
+		misc.PrintLine(errValidity)
 		return
 	}
 

@@ -1,4 +1,4 @@
-# Tetromino Solver
+# tetris-optimizer
 
 ## Overview
 
