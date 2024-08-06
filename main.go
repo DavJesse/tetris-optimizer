@@ -47,7 +47,7 @@ func main() {
 
 	tetroSlc := misc.TwoD(content) // Extract tetrominoes in file and store them in 2D slice
 
-	tetroSlc, errValidity := tetro.CheckValidy(tetroSlc) // Check tetrominos for validity
+	tetroSlc, errValidity := tetro.CheckValidity(tetroSlc) // Check tetrominos for validity
 
 	// In case of error, print error message, end program
 	if errValidity != "" {

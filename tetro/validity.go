@@ -1,7 +1,7 @@
 package tetro
 
 // Check each tetromino for validity
-func CheckValidy(file [][]string) ([][]string, string) {
+func CheckValidity(file [][]string) ([][]string, string) {
 	var err string
 	var trimmed []string
 	var tetro [][]string
