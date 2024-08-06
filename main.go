@@ -46,6 +46,7 @@ func main() {
 		return
 	}
 
+	// Ensure file only contains '#' and '.' characters
 	if !strung.IsHashDot(content) {
 		misc.PrintLine(errFile)
 		return
