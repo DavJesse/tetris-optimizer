@@ -5,6 +5,7 @@ import (
 
 	"tetris/grid"
 	"tetris/misc"
+	"tetris/strung"
 	"tetris/tetro"
 )
 
@@ -41,6 +42,11 @@ func main() {
 		if len(content) == 0 {
 			return
 		}
+		misc.PrintLine(errFile)
+		return
+	}
+
+	if !strung.IsHashDot(content) {
 		misc.PrintLine(errFile)
 		return
 	}
