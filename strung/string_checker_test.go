@@ -44,7 +44,7 @@ func TestSplit(t *testing.T) {
 
 func TestIsHashDot(t *testing.T) {
 	test := "TestIsHashDot"
-	subject := "..,#"
+	subject := []string{"...#", "..,#"}
 	got := IsHashDot(subject) // Retrieve output for comparison
 	expected := false
 
