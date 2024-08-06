@@ -1,7 +1,9 @@
 package tetro
 
+import "tetris/strung"
+
 // Check each tetromino for validity
-func CheckValidy(file [][]string) ([][]string, string) {
+func CheckValidity(file [][]string) ([][]string, string) {
 	var err string
 	var trimmed []string
 	var tetro [][]string
@@ -11,6 +13,13 @@ func CheckValidy(file [][]string) ([][]string, string) {
 	} else {
 		// Range through file testing individual tetrominos
 		for i, tet := range file {
+			// Ensure file only contains '#' and '.' characters
+			if !strung.IsHashDot(tet) {
+				err = Errors()
+				tetro = [][]string{}
+				break
+			}
+
 			// Check dimensions of tetromino
 			if !fourByFour(tet) {
 				err = Errors()
@@ -18,21 +27,20 @@ func CheckValidy(file [][]string) ([][]string, string) {
 				break
 			}
 
-			// Trim tetromino for efficiency
-			trimmed = TetroTrim(tet)
-
 			// Check if each tetromino has four '#'
-			if !fourHashes(trimmed) {
+			if !fourHashes(tet) {
 				err = Errors()
 				tetro = [][]string{}
 				break
 			}
 
 			// Check for valid number of connections
-			if !validConnections(trimmed) {
+			if !validConnections(tet) {
 				err = Errors()
 				tetro = [][]string{}
 			}
+
+			trimmed = TetroTrim(tet) // Trim tetromino for efficiency
 
 			trimmed = replaceHash(i, trimmed) // Replace '#' with unique alphabetic letter
 

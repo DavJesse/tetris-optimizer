@@ -41,3 +41,16 @@ func TestSplit(t *testing.T) {
 		}
 	}
 }
+
+func TestIsHashDot(t *testing.T) {
+	test := "TestIsHashDot"
+	subject := []string{"...#", "..,#"}
+	got := IsHashDot(subject) // Retrieve output for comparison
+	expected := false
+
+	if got != expected {
+		t.Errorf("Got: %t", got)
+		t.Errorf("Expected: %t", expected)
+		t.Errorf("%s Failed!", test)
+	}
+}

@@ -35,14 +35,19 @@ func main() {
 
 	content, errFile := misc.ReadFile(file) // Read the file parsed as argument
 
-	if errFile != "" {
+	// React to errors in reading file and when file is empty
+	// Exit program in both circumstances
+	if errFile != "" || len(content) == 0 {
+		if len(content) == 0 {
+			return
+		}
 		misc.PrintLine(errFile)
 		return
 	}
 
 	tetroSlc := misc.TwoD(content) // Extract tetrominoes in file and store them in 2D slice
 
-	tetroSlc, errValidity := tetro.CheckValidy(tetroSlc) // Check tetrominos for validity
+	tetroSlc, errValidity := tetro.CheckValidity(tetroSlc) // Check tetrominos for validity
 
 	// In case of error, print error message, end program
 	if errValidity != "" {
