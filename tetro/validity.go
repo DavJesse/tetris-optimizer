@@ -1,5 +1,7 @@
 package tetro
 
+import "tetris/strung"
+
 // Check each tetromino for validity
 func CheckValidity(file [][]string) ([][]string, string) {
 	var err string
@@ -11,6 +13,13 @@ func CheckValidity(file [][]string) ([][]string, string) {
 	} else {
 		// Range through file testing individual tetrominos
 		for i, tet := range file {
+			// Ensure file only contains '#' and '.' characters
+			if !strung.IsHashDot(tet) {
+				err = Errors()
+				tetro = [][]string{}
+				break
+			}
+
 			// Check dimensions of tetromino
 			if !fourByFour(tet) {
 				err = Errors()

@@ -1,12 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"tetris/grid"
 	"tetris/misc"
-	"tetris/strung"
 	"tetris/tetro"
 )
 
@@ -43,12 +41,6 @@ func main() {
 		if len(content) == 0 {
 			return
 		}
-		misc.PrintLine(errFile)
-		return
-	}
-
-	// Ensure file only contains '#' and '.' characters
-	if !strung.IsHashDot(content) {
 		misc.PrintLine(errFile)
 		return
 	}
