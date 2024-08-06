@@ -35,7 +35,12 @@ func main() {
 
 	content, errFile := misc.ReadFile(file) // Read the file parsed as argument
 
-	if errFile != "" {
+	// React to errors in reading file and when file is empty
+	// Exit program in both circumstances
+	if errFile != "" || len(content) == 0 {
+		if len(content) == 0 {
+			return
+		}
 		misc.PrintLine(errFile)
 		return
 	}
