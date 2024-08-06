@@ -5,6 +5,7 @@ import (
 	"runtime"
 
 	"tetris/strung"
+	"tetris/tetro"
 )
 
 func CheckExtension(str string) bool {
@@ -26,7 +27,7 @@ func ReadFile(file string) (string, string) {
 	// Print error & exit program should reading fail
 	// Populate error message should there be an error
 	if err != nil {
-		errors = "Could not find "
+		errors = tetro.Errors()
 	}
 
 	return string(content), errors

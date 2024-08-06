@@ -91,6 +91,6 @@ func replaceHash(index int, tet []string) []string {
 }
 
 // Outputs validity error message
-func errors() string {
+func Errors() string {
 	return "ERROR"
 }
