@@ -8,7 +8,7 @@ func TestCheckValidity(t *testing.T) {
 		{"#...", "#...", "#...", "#..."},
 		{"....", "....", "##..", "##.."},
 	}
-	gotTetro, gotErr := CheckValidy(subject) // Retrieve output for comparison
+	gotTetro, gotErr := CheckValidity(subject) // Retrieve output for comparison
 	expectedTetro, exErr := [][]string{
 		{"A", "A", "A", "A"},
 		{"BB", "BB"},

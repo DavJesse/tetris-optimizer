@@ -33,3 +33,15 @@ func Split(str, sep string) []string {
 	result = append(result, token)
 	return result
 }
+
+// Check if file contains non-dot and non-hash characters
+func IsHashDot(s string) bool {
+	status := true
+	if !Contains(s, "#") {
+		if !Contains(s, ".") {
+			status = false
+		}
+	}
+
+	return status
+}
