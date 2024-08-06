@@ -90,12 +90,7 @@ func replaceHash(index int, tet []string) []string {
 	return result
 }
 
-// Outputs validity error messages
-func validityError(index int) string {
-	errors := []string{
-		" contains more than 26 tetrominos",
-		" contains invalid tetromino",
-	}
-
-	return errors[index]
+// Outputs validity error message
+func errors() string {
+	return "ERROR"
 }

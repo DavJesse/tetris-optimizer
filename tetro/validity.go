@@ -7,13 +7,13 @@ func CheckValidy(file [][]string) ([][]string, string) {
 	var tetro [][]string
 
 	if len(file) > 26 {
-		err = validityError(0)
+		err = errors()
 	} else {
 		// Range through file testing individual tetrominos
 		for i, tet := range file {
 			// Check dimensions of tetromino
 			if !fourByFour(tet) {
-				err = validityError(1)
+				err = errors()
 				tetro = [][]string{}
 				break
 			}
@@ -23,14 +23,14 @@ func CheckValidy(file [][]string) ([][]string, string) {
 
 			// Check if each tetromino has four '#'
 			if !fourHashes(trimmed) {
-				err = validityError(1)
+				err = errors()
 				tetro = [][]string{}
 				break
 			}
 
 			// Check for valid number of connections
 			if !validConnections(trimmed) {
-				err = validityError(1)
+				err = errors()
 				tetro = [][]string{}
 			}
 
