@@ -35,12 +35,14 @@ func Split(str, sep string) []string {
 }
 
 // Check if file contains non-dot and non-hash characters
-func IsHashDot(s string) bool {
+func IsHashDot(s []string) bool {
 	status := true
-	for _, ch := range s {
-		if ch != '#' && ch != '.' {
-			status = false
-			break
+	for i := range s {
+		for _, ch := range s[i] {
+			if ch != '#' && ch != '.' {
+				status = false
+				break
+			}
 		}
 	}
 
