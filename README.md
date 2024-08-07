@@ -1,4 +1,4 @@
-# tetris-optimizer
+# tetris-solverer
 
 ## Overview
 
